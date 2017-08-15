@@ -1,0 +1,27 @@
+/****************************************************************
+** File:  occurances_hub.bql  
+** Name:  fccr.fccr_uae_hub_occurances - Target Table
+**
+** Desc:  Calculating number of occurances for the same transaction 
+**        in HUB and Population of table-fccr.fccr_uae_hub_occurances
+**
+** Auth:  Prashant
+** Date:  10/08/2017
+*****************************************************************
+** Change History
+*****************************************************************
+** PR   Date        Author  Description 
+** --   --------   -------   ------------------------------------
+** 1    10/08/2017  Prashant  Initial release
+*****************************************************************/
+
+SELECT 
+CAST(tran_date as STRING) as tran_date,
+account_number, 
+tran_ammount,
+count(*) as hub_occurances 
+FROM [graceful-wall-175811:fccr.fccr_uae_hub_stg] 
+group by tran_date,account_number, tran_ammount
+
+
+
