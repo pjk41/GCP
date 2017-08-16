@@ -20,8 +20,10 @@ CAST(tran_date as STRING) as tran_date,
 account_number, 
 tran_ammount,
 count(*) as hub_occurances 
-FROM [graceful-wall-175811:fccr.fccr_uae_hub_stg] 
-group by tran_date,account_number, tran_ammount
+FROM 
+[graceful-wall-175811:fccr.fccr_uae_hub_stg] 
+GROUP BY 
+tran_date,account_number, tran_ammount
 
 
 
