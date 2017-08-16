@@ -8,6 +8,10 @@
 #version         : 0.1    
 #------------------------------------------------------------------------------------
 
+##--------- PARAM file execution ----------------------------------------------------
+. /home/koraviprashant811/GCP/PARAM/COMMON_PARAM
+
+#####################################################################################
 
 bq query --destination_table=fccr.hub_camp_match_transactions "
 SELECT 

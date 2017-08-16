@@ -8,12 +8,45 @@
 #version         : 0.1    
 #------------------------------------------------------------------------------------
 
+##--------- PARAM file execution ----------------------------------------------------
+. /home/koraviprashant811/GCP/PARAM/COMMON_PARAM
 
+#####################################################################################
 
 # Execution of HUB and CAMP staging transformations  
-cat /home/koraviprashant811/GCP/BQLS/hub_stg.bql | bq query --destination_table=fccr.fccr_uae_hub_stg
-cat /home/koraviprashant811/GCP/BQLS/camp_stg.bql | bq query --destination_table=fccr.fccr_uae_camp_stg
+cat ${HOME_DIR}/GCP/BQLS/hub_stg.bql | bq query --destination_table=${DATASET_NAME}.fccr_uae_hub_stg
+if [ $? -eq 0 ]
+then
+  	echo "Successfully Completed the staging transformation for HUB."
+else
+  	echo "failed with code $?, exiting the script ..!"
+  	exit 1
+fi
+
+cat ${HOME_DIR}/GCP/BQLS/camp_stg.bql | bq query --destination_table=${DATASET_NAME}.fccr_uae_camp_stg
+if [ $? -eq 0 ]
+then
+  	echo "Successfully Completed the staging transformation for CAMP."
+else
+  	echo "failed with code $?, exiting the script ..!"
+  	exit 1
+fi
 
 # Execution of HUB and CAMP occurances transformations
-cat /home/koraviprashant811/GCP/BQLS/occurances_hub.bql | bq query --destination_table=fccr.fccr_uae_hub_occurances
-cat /home/koraviprashant811/GCP/BQLS/occurances_camp.bql | bq query --destination_table=fccr.fccr_uae_camp_occurances
+cat ${HOME_DIR}/GCP/BQLS/occurances_hub.bql | bq query --destination_table=${DATASET_NAME}.fccr_uae_hub_occurances
+if [ $? -eq 0 ]
+then
+  	echo "HUB occurance calculation Successful."
+else
+  	echo "failed with code $?, exiting the script ..!"
+  	exit 1
+fi
+
+cat ${HOME_DIR}/GCP/BQLS/occurances_camp.bql | bq query --destination_table=${DATASET_NAME}.fccr_uae_camp_occurances
+if [ $? -eq 0 ]
+then
+  	echo "CAMP occurance calculation Successful."
+else
+  	echo "failed with code $?, exiting the script ..!"
+  	exit 1
+fi
