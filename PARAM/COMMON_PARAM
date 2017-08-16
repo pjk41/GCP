@@ -1,0 +1,6 @@
+HOME_DIR=/home/koraviprashant811
+DATASET_NAME=fccr
+PROJECT_ID=graceful-wall-175811
+STORAGE_BUCKET_NAME=elegant-abode-4476
+DATA_FILE_HUB=Sample_Test_data_HUB.csv
+DATA_FILE_CAMP=Sample_Test_data_CAMP.csv
