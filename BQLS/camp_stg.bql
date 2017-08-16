@@ -1,3 +1,4 @@
+#standardSQL
 /****************************************************************
 ** File:  camp_stg.bql  
 ** Name:  fccr.fccr_uae_camp_stg - Target Table
