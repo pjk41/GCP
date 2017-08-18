@@ -10,7 +10,7 @@
 ##---------Log File Creation --------------------------------------------------------
 
 CURR_DATE=`date "+%Y%m%d_%H%M"`
-LOG_FILE=GCP_INGESTION_$CURR_DATE
+LOG_FILE=/home/koraviprashant811/GCP/LOGS/GCP_INGESTION_$CURR_DATE
 exec >> $LOG_FILE
 exec 2>&1
 
