@@ -1,3 +1,7 @@
+BQL_PATH=/home/koraviprashant811/GCP/BQLS
+
+GCPFC001_DIR=$BQL_PATH
+GCPFC002_DIR=$BQL_PATH
 
 GCPFC001=hub_stg.bql|camp_stg.bql|occurances_hub.bql|occurances_camp.bql
 GCPFC002=Final_counts.bql
