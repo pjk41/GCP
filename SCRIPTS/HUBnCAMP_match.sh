@@ -8,6 +8,13 @@
 #version         : 0.1    
 #------------------------------------------------------------------------------------
 
+##---------Log File Creation --------------------------------------------------------
+
+CURR_DATE=`date "+%Y%m%d_%H%M"`
+LOG_FILE=GCP_MATCH_$CURR_DATE
+exec >> $LOG_FILE
+exec 2>&1
+
 ##--------- PARAM file execution ----------------------------------------------------
 . /home/koraviprashant811/GCP/PARAM/COMMON_PARAM
 
